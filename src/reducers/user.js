@@ -1,7 +1,7 @@
 import {fromJS} from "immutable";
 import {
     REGISTER, LOGIN, LOGOUT
-} from "../actions/register";
+} from "../actions/user";
 
 const initialState = fromJS({
     user: {}
@@ -10,15 +10,14 @@ const initialState = fromJS({
 function RegisterReducer(state = initialState, {type, payload}) {
     switch (type) {
         case REGISTER:
-            return state.set('user', state.get('user').set(`${payload}`, payload));
+            return state;
         case LOGIN:
-            return;
+            return state.set('user', state.get('user').set(`${payload}`, payload));
         case LOGOUT:
-            return;
+            return state.set('user', fromJS({}));;
         default:
             return state;
     }
 }
 
 export default RegisterReducer;
-

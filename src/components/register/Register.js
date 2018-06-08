@@ -1,15 +1,18 @@
 import React from 'react';
 import firebase from 'firebase';
 import FileUpload from '../fileUpload/FileUpload';
+import { ENGINE_METHOD_DIGESTS } from 'constants';
 
 class Register extends React.Component{
     constructor(props){
         super(props);
 
-        this.handleAuth = this.handleAuth.bind(this);
-
         this.state = {
-          user: {}
+          user: {
+
+          },
+          email: '',
+          password: ''
         }
     }
 
@@ -26,22 +29,22 @@ class Register extends React.Component{
         }
     }
 
-    handleAuth(){
-      this.props.loginAuth();
-    }
-
     render(){
         return(
           <div>
-            {(this.state.user)
-              ? <div>
-                  <img src={this.state.user.photoURL} alt={this.state.user.displayName} />
-                  <p> Hola {this.state.user.displayName} </p>
-                  <button onClick={() => console.log('salir')}>Salir</button>
-                  <FileUpload />
-                </div>
-              : <button onClick={this.handleAuth}>Login con Google</button>
-            }
+            <input 
+              value={this.state.email}
+              type="text" 
+              placeholder="email" 
+              onChange={(event) => this.setState({email: event.target.value})}
+              />
+            <input 
+              value={this.state.password}
+              type="password" 
+              placeholder="password" 
+              onChange={(event) => this.setState({password: event.target.value})}
+              />
+            <button onClick={() => this.props.register(this.state.email, this.state.password)}>REGISTRARSE</button>
           </div>
         )
     }

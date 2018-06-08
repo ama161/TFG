@@ -7,7 +7,7 @@ import {
 
 import Home from './components/home/Home';
 import Register from './components/register/RegisterContainer';
-import Login from './components/register/Login';
+import Login from './components/register/LoginContainer';
 
 const Router = (props) => (
   <HashRouter>

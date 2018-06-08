@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import firebase from 'firebase'
 
-import './stylesheets/main.scss';
+// import './sass/main.scss';
 import registerServiceWorker from './registerServiceWorker';
 import App from "./App";
 import {Provider} from "react-redux";

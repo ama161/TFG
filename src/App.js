@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 
-import './stylesheets/main.scss';
+import './style/main.css';
 import language from './language/language';
 import Home from "./components/home/Home";
 import Router from "./Router";

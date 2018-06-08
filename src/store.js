@@ -6,15 +6,14 @@ import {fromJS, Map} from "immutable";
 const root = document.getElementById('root');
 const dataset = root.dataset;
 
-console.log(dataset);
 const initialData = Map({
     user: {},
+    language: ''
 });
 
 const store = createStore(
     reducer,
-    initialData,
-    applyMiddleware(thunk),
+    applyMiddleware(thunk)
 );
 
 export default store

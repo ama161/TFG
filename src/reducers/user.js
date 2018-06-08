@@ -4,15 +4,16 @@ import {
 } from "../actions/user";
 
 const initialState = fromJS({
-    user: {}
+    email: '',
 });
 
-function RegisterReducer(state = initialState, {type, payload}) {
+function user(state = initialState, {type, payload}) {
+    console.log(payload);
     switch (type) {
         case REGISTER:
             return state;
         case LOGIN:
-            return state.set('user', state.get('user').set(`${payload}`, payload));
+            return state.set('user', state['email'].set(`${payload.email}`, payload.email));
         case LOGOUT:
             return state.set('user', fromJS({}));;
         default:
@@ -20,4 +21,4 @@ function RegisterReducer(state = initialState, {type, payload}) {
     }
 }
 
-export default RegisterReducer;
+export default user;

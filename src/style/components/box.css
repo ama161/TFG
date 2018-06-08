@@ -1,7 +1,14 @@
 .box{
-    background: black;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    background: #97C6E1;
+    box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.41);
+    padding: 4em 1em 1em 1em;
 }
 
 .circle-box {
     background: red;
+    /* border: 1px solid #4C6370; */
 }

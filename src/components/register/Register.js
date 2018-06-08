@@ -2,6 +2,8 @@ import React from 'react';
 import firebase from 'firebase';
 import FileUpload from '../fileUpload/FileUpload';
 import { ENGINE_METHOD_DIGESTS } from 'constants';
+import Box from '../utils/Box'
+import Input from '../utils/Input'
 
 class Register extends React.Component{
     constructor(props){
@@ -31,21 +33,29 @@ class Register extends React.Component{
 
     render(){
         return(
-          <div>
-            <input 
+          <Box>
+            <Input 
+              className="form-item"
               value={this.state.email}
               type="text" 
-              placeholder="email" 
+              label="email" 
               onChange={(event) => this.setState({email: event.target.value})}
               />
-            <input 
+            <Input 
+              className="form-item"
               value={this.state.password}
               type="password" 
-              placeholder="password" 
+              label="password" 
               onChange={(event) => this.setState({password: event.target.value})}
               />
-            <button onClick={() => this.props.register(this.state.email, this.state.password)}>REGISTRARSE</button>
-          </div>
+            <div className="button-container">
+              <button 
+                className="button-border" 
+                onClick={() => this.props.register(this.state.email, this.state.password)}
+              >Registrarse
+              </button>
+            </div>
+          </Box>
         )
     }
 }

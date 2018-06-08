@@ -4,7 +4,7 @@ import {
 } from "../actions/user";
 
 const initialState = fromJS({
-    email: '',
+    user: {},
 });
 
 function user(state = initialState, {type, payload}) {
@@ -13,7 +13,8 @@ function user(state = initialState, {type, payload}) {
         case REGISTER:
             return state;
         case LOGIN:
-            return state.set('user', state['email'].set(`${payload.email}`, payload.email));
+            console.log(payload);
+            return state.set('user', fromJS(payload));
         case LOGOUT:
             return state.set('user', fromJS({}));;
         default:

@@ -7,7 +7,7 @@ export const LOGOUT = 'LOGOUT';
 function login(data) {
     return {
         type: LOGIN,
-        payload: data.providerData[0]
+        payload: data
     }
 }
 
@@ -33,13 +33,14 @@ export function loginAuth() {
 }
 
 export function login(email, password) {
-    console.log(email);
     return (dispatch) => {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((result) => {
                 console.log(result)
                 dispatch(login(result));
-                console.log('todo bien')
+                if(result.emailVerified){
+                    console.log('email Verified');
+                }
             })
             .catch((error) => {
                 var errorCode = error.code;

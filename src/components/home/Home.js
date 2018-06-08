@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
+import { withRouter } from 'react-router'
 
 class Home extends React.Component {
   constructor(props) {
@@ -10,21 +11,17 @@ class Home extends React.Component {
     }
   }
 
-  logout(){
-    firebase.auth().signOut()
-      .then(() => console.log('adios'))
-      .catch((error) => console.log(error))
-  }
-
   render(){
     return(
       <div>
-        <a href="/#/register">Registro</a>
-        <a href="/#/login">Iniciar sesión</a>
-        <button onClick={this.logout}>CERRAR SESION</button>
+        <div className="home-buttons">
+          <button className="button-fill" onClick={() => this.props.history.push("/register")}>Registro</button>
+          <button className="button-fill" onClick={() => this.props.history.push("/login")}>Iniciar sesión</button>
+        </div>
       </div>
+      
     )
   }
 }
 
-export default Home
+export default withRouter(Home)

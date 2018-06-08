@@ -1,0 +1,25 @@
+.button-border{
+    border: solid 2px #4C6370;
+    border-radius: 0;
+    padding: 0.7em 0.7em;
+    width: max-content;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.41);
+    color: #4C6370;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.button-fill{
+    background: #97C6E1;
+    padding: 0.7em 0.7em;
+    width: max-content;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.41);
+    color: #4C6370;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: none;
+}
+
+.button-container{
+    margin: auto;
+}

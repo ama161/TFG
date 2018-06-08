@@ -3,12 +3,11 @@ import React from 'react';
 const Box = ({children, className}) => {
     // let classNames = "box " + (className) ? className : '';
     return(
+        <div>
+        <div className = "circle-box"></div>
         <div className = "box">
-            <div className = "circle-box">
-
-            </div>
-
             {children}
+        </div>
         </div>
     )
 }

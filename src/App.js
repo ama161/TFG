@@ -10,10 +10,6 @@ class App extends Component {
   constructor(){
     super();
 
-    // this.handleAuth = this.handleAuth.bind(this);
-    // this.handleLogout = this.handleLogout.bind(this);
-    // this.renderLoginButton = this.renderLoginButton.bind(this);
-
     this.state = {
       user: null
     };
@@ -28,29 +24,6 @@ class App extends Component {
   componentWillReceiveProps(){
     console.log(this.props.user);
   }
-
-  // handleLogout(){
-  //   firebase.auth().signOut()
-  //     .then(result => {
-  //       console.log(`${this.state.user.email} ha cerrado sesión`);
-  //     })
-  //     .catch(error => console.log('Error'));
-  // }
-
-  // renderLoginButton(){
-  //   if(this.state.user){
-  //     return (
-  //       <div>
-  //         <img src={this.state.user.photoURL} alt={this.state.user.displayName} />
-  //         <p> Hola {this.state.user.displayName} </p>
-  //         <button onClick={this.handleLogout}>Salir</button>
-  //         <FileUpload />
-  //       </div>
-  //     );
-  //   } else{
-  //     return <Register/>;
-  //   }
-  // }
 
   render() {
     return (

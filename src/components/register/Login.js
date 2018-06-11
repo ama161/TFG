@@ -1,5 +1,4 @@
 import React from 'react';
-import firebase from 'firebase';
 import Box from '../utils/Box'
 import Input from '../utils/Input'
 
@@ -33,7 +32,11 @@ class Login extends React.Component{
                 <div className="button-container">
                     <button 
                         className="button-border" 
-                        onClick={() => this.props.login(this.state.email, this.state.password)}
+                        onClick={() => {
+                            this.props.login(this.state.email, this.state.password)
+                                .then(() => this.props.history.push('/homeUser'))
+                            }
+                        }
                     >Iniciar sesión
                     </button>
                 </div>

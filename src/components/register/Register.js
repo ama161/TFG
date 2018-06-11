@@ -1,7 +1,4 @@
 import React from 'react';
-import firebase from 'firebase';
-import FileUpload from '../fileUpload/FileUpload';
-import { ENGINE_METHOD_DIGESTS } from 'constants';
 import Box from '../utils/Box'
 import Input from '../utils/Input'
 
@@ -16,12 +13,6 @@ class Register extends React.Component{
           email: '',
           password: ''
         }
-    }
-
-    componentWillMount(){
-      firebase.auth().onAuthStateChanged(user => {
-        this.setState({user});
-      })
     }
     
     componentWillReceiveProps(){

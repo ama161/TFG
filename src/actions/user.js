@@ -4,14 +4,14 @@ export const REGISTER = 'REGISTER';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 
-function login(data) {
+function loginUser(data) {
     return {
         type: LOGIN,
         payload: data
     }
 }
 
-function logout() {
+function logoutUser() {
     return {
         type: LOGOUT
     }
@@ -36,16 +36,13 @@ export function login(email, password) {
     return (dispatch) => {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((result) => {
-                console.log(result)
-                dispatch(login(result));
+                dispatch(loginUser(result));
                 if(result.emailVerified){
                     console.log('email Verified');
                 }
             })
             .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                console.log(errorCode + " " + errorMessage);
+                console.log(error);
         });
     }
 }
@@ -54,7 +51,7 @@ export function logout() {
     return (dispatch) => {
         firebase.auth().signOut()
             .then(result => {
-                dispatch(logout());
+                dispatch(logoutUser());
             })
             .catch(error => console.log(error));
         }
@@ -62,41 +59,25 @@ export function logout() {
 
 export function register(email, password) {
     return (dispatch) => {
-        console.log(email)
-        console.log(password)
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then(() => {
                 console.log('todo bien')
                 verification();
             })
             .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                console.log(errorCode + " " + errorMessage);
+                console.log(error);                
             });
     }
 }
 
 export function onAuthState(){
     return (dispatch => {
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 console.log("usuario activo");
                 console.log(user);
-              // User is signed in.
-              var displayName = user.displayName;
-              var email = user.email;
-              var emailVerified = user.emailVerified;
-              var photoURL = user.photoURL;
-              var isAnonymous = user.isAnonymous;
-              var uid = user.uid;
-              var providerData = user.providerData;
-              // ...
             } else {
                 console.log("no usuario activo");
-                
-              // User is signed out.
-              // ...
             }
           });
     })

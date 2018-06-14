@@ -1,6 +1,5 @@
 import React from 'react';
 import { Modal as AntModal } from 'antd';
-import ClassForm from "../class/ClassForm";
 
 class Modal extends React.Component{
     constructor(props){
@@ -14,14 +13,14 @@ class Modal extends React.Component{
     render(){
         return(
             <div>
-                <button onClick={() => this.setState({visible: true})}>Modal</button>
+                <button onClick={() => this.setState({visible: true})}>{this.props.title}</button>
                 <AntModal 
                     onOk={this.handleOk}
-                    okText="New"
+                    okText={this.props.title}
                     visible={this.state.visible}
                     onCancel={() => this.setState({visible: false})}
                 >
-                    <ClassForm/>
+                    {this.props.children}
                 </AntModal>
             </div>
         )

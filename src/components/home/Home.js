@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router'
 import Box from '../utils/Box';
+import Modal from '../utils/Modal';
 
 class Home extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class Home extends React.Component {
   render(){
     return(
       <div>
+        <Modal/>
         <div className="home-buttons">
           <button className="button-fill" onClick={() => this.props.history.push("/register")}>Registro</button>
           <button className="button-fill" onClick={() => this.props.history.push("/login")}>Iniciar sesión</button>

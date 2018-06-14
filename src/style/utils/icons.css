@@ -1,3 +1,6 @@
+.icon-selected{
+    border: solid 1px #4C6370;
+}
 .icon-chat{background-image: url("../../img/icons/chat.png");}
 .icon-test{background-image: url("../../img/icons/test.png");}
 .icon-statistics{background-image: url("../../img/icons/statistics.png");}

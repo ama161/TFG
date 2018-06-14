@@ -1,0 +1,17 @@
+.animals-content{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5% auto;
+    justify-content: space-around;
+    width: 100%;
+    height: min-content;
+}
+
+.animals-content p{
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
+    background-position: center;
+    margin: 0;
+    background-size: contain;
+}

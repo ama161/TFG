@@ -6,3 +6,11 @@
 .home-buttons button{
     margin: 0.5em;
 }
+
+.home-boxes{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}

@@ -10,11 +10,13 @@ class HomeUser extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props.user);
+        let user = this.props.onAuthState();
+        console.log(user);
     }
 
     componentWillReceiveProps(nextProps){
-        console.log(nextProps.user);
+        let user = nextProps.onAuthState();
+        console.log(user);
     }
 
     render(){

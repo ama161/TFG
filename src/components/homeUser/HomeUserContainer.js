@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import HomeUser from "./HomeUser";
+import {onAuthState} from "../../actions/user"
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -9,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        onAuthState: () => dispatch(onAuthState()) 
     }
 };
 

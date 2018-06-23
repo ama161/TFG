@@ -49,18 +49,6 @@ export function login(email, password, history) {
     }
 }
 
-// return (dispatch) => {
-//     return new Promise((resolve, reject) => {
-//         firebase.auth().signInWithEmailAndPassword(email, password)
-//             .then((data) => {
-//                 resolve(data);
-//             })
-//     }).then(result => {
-//         console.log(result);
-//         dispatch(loginUser(result));
-//         return Promise.resolve(result);
-//     })
-
 export function logout() {
     return (dispatch) => {
         firebase.auth().signOut()
@@ -90,6 +78,7 @@ export function onAuthState(){
             if (user) {
                 console.log("usuario activo");
                 console.log(user);
+                return user;
             } else {
                 console.log("no usuario activo");
             }

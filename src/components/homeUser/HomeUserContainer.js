@@ -3,7 +3,7 @@ import HomeUser from "./HomeUser";
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        user: state['user'].toJS(),
+        user: state['user'].toJS().user,
     }
 };
 

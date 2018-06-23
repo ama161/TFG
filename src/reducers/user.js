@@ -13,7 +13,7 @@ function user(state = initialState, {type, payload}) {
             return state;
         case LOGIN:
             console.log(payload);
-            return state.set('user', fromJS(payload));
+            return state.set('user', payload);
         case LOGOUT:
             return state.set('user', fromJS({}));;
         default:

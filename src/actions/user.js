@@ -32,7 +32,7 @@ export function loginAuth() {
     }
 }
 
-export function login(email, password) {
+export function login(email, password, history) {
     return (dispatch) => {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((result) => {
@@ -40,12 +40,26 @@ export function login(email, password) {
                 if(result.emailVerified){
                     console.log('email Verified');
                 }
+
+                history.push('/homeUser');
             })
             .catch((error) => {
                 console.log(error);
         });
     }
 }
+
+// return (dispatch) => {
+//     return new Promise((resolve, reject) => {
+//         firebase.auth().signInWithEmailAndPassword(email, password)
+//             .then((data) => {
+//                 resolve(data);
+//             })
+//     }).then(result => {
+//         console.log(result);
+//         dispatch(loginUser(result));
+//         return Promise.resolve(result);
+//     })
 
 export function logout() {
     return (dispatch) => {

@@ -8,7 +8,7 @@ import {
 import Home from './components/home/HomeContainer';
 import Register from './components/register/RegisterContainer';
 import Login from './components/register/LoginContainer';
-import HomeUser from './components/homeUser/HomeUser';
+import HomeUser from './components/homeUser/HomeUserContainer';
 import HomeTeacher from './components/homeTeacher/HomeTeacher';
 
 const Router = (props) => (

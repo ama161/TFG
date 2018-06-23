@@ -9,15 +9,18 @@ class HomeUser extends React.Component{
         }
     }
 
+    componentDidMount(){
+        console.log(this.props.user);
+    }
+
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps.user);
+    }
+
     render(){
-        if(!this.props.user.emailVerified){
-            return(
-                <p>Email no verificado</p>
-            )
-        }
         return(
             <div>
-                <h1>Welcome!!! {this.props.user.email}</h1>
+                <h1>Welcome!!!</h1>
             </div>
         )
     }

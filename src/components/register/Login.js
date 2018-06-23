@@ -6,10 +6,15 @@ class Login extends React.Component{
     constructor(props){
         super(props);
 
+        this.handleLogin = this.handleLogin.bind(this);
         this.state={
             email: '',
             password: '',
         }
+    }
+
+    handleLogin(){
+        this.props.login(this.state.email, this.state.password, this.props.history)
     }
 
     render(){
@@ -32,11 +37,7 @@ class Login extends React.Component{
                 <div className="button-container">
                     <button 
                         className="button-border" 
-                        onClick={() => {
-                            this.props.login(this.state.email, this.state.password)
-                                .then(() => this.props.history.push('/homeUser'))
-                            }
-                        }
+                        onClick={() => this.handleLogin()}
                     >Iniciar sesión
                     </button>
                 </div>

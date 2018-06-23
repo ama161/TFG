@@ -1,7 +1,8 @@
-export const setLanguage = (item) => {
-    console.log('item ', item);
+export const UPDATE = 'UPDATE';
+
+export function updateLanguage(language) {
     return {
-        type: 'set',
-        item
+        type: UPDATE,
+        payload: language
     }
 }

@@ -8,7 +8,6 @@ const initialState = fromJS({
 });
 
 function user(state = initialState, {type, payload}) {
-    console.log(payload);
     switch (type) {
         case REGISTER:
             return state;

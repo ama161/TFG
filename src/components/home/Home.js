@@ -4,47 +4,68 @@ import Box from '../utils/Box';
 import Modal from '../utils/Modal';
 import ClassForm from '../class/ClassForm';
 import StudentForm from '../student/StudentForm';
+import language from '../../language/language'
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
 
+    this.changeLanguage = this.changeLanguage.bind(this, language);
     this.state = {
-
+      language: 0,
     }
+  }
+
+  changeLanguage(global, language){
+    let languageNumber = 0;
+    if(language === 'EN') languageNumber = 1;
+
+    this.props.updateLanguage(languageNumber);
+  }
+
+  componentDidMount(){
+    this.setState({language: this.props.language})
+  }
+  componentWillReceiveProps(nextProps){
+    this.setState({language: nextProps.language})    
   }
 
   render(){
     return(
       <div>
-        <Modal title="Nueva Clase">
+        {/* <Modal title="Nueva Clase">
           <ClassForm/>
         </Modal>
         <Modal title="Nuevo Alumno">
           <StudentForm/>
-        </Modal>
+        </Modal> */}
+        
         <div className="home-buttons">
-          <button className="button-fill" onClick={() => this.props.history.push("/register")}>Registro</button>
-          <button className="button-fill" onClick={() => this.props.history.push("/login")}>Iniciar sesión</button>
+          <button className="button-fill" onClick={() => this.props.history.push("/register")}>{language[this.state.language].register}</button>
+          <button className="button-fill" onClick={() => this.props.history.push("/login")}>{language[this.state.language].login}</button>
+          <p>
+            <span onClick={() => this.changeLanguage('ES')}>ES</span> 
+            | <span onClick={() => this.changeLanguage('EN')}>EN</span>
+          </p>
         </div>
         <div className="home-boxes">
           <Box type="brown" typeIcon="icon-chat">
-            <p>CONTACTA CON LOS PADRES DE TUS ALUMNOS EN CUALQUIER MOMENTO</p>
+            <p>{language[this.state.language].chat}</p>
           </Box>
           <Box type="brown" typeIcon="icon-blackboard">
-            <p>ORGANIZA TODOS TUS ALUMNOS POR AULAS</p>
+            <p>{language[this.state.language].class}</p>
           </Box>
           <Box type="brown" typeIcon="icon-file">
-            <p>CREA EXPEDIENTES PARA ORGANIZAR TODAS LAS NOTAS DE TUS ALUMNOS</p>
+            <p>{language[this.state.language].evaluation}</p>
           </Box>
           <Box type="brown" typeIcon="icon-calendar">
-            <p>ORGANIZA LAS FALTAS DE LOS ALUMNOS Y FACILITA A LOS PADRES SU JUSTIFICACIÓN</p>
+            <p>{language[this.state.language].calendar}</p>
           </Box>
           <Box type="brown" typeIcon="icon-statistics">
-            <p>ESTUDIOS ESTADÍSTICOS DE TUS ALUMNOS Y AULAS</p>
+            <p>{language[this.state.language].statistics}</p>
           </Box>
           <Box type="brown" typeIcon="icon-test">
-            <p>CREA TEST PARA COMPARTIR CON QUIEN QUIERAS</p>
+            <p>{language[this.state.language].test}</p>
           </Box>
         </div>
 

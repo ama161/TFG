@@ -5,13 +5,15 @@ class HomeUser extends React.Component{
         super(props);
 
         this.state={
-
+            user: '',
         }
     }
 
-    componentDidMount(){
-        let user = this.props.onAuthState();
-        console.log(user);
+    componentWillMount(){
+        let user = JSON.parse(localStorage.userRegisted);
+        this.props.onAuthState();
+        this.setState({user: user});
+        console.log(JSON.parse(localStorage.userRegisted));
     }
 
     componentWillReceiveProps(nextProps){
@@ -22,7 +24,7 @@ class HomeUser extends React.Component{
     render(){
         return(
             <div>
-                <h1>Welcome!!!</h1>
+                <h1>Welcome!!! {this.state.user.email}</h1>
             </div>
         )
     }

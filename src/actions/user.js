@@ -37,11 +37,22 @@ export function login(email, password, history) {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((result) => {
                 dispatch(loginUser(result));
+                // firebase.database().ref('users/'+result.uid).set({
+                //     username: 'Andrea',
+                //     role: 'admin'
+                // })
                 if(result.emailVerified){
                     console.log('email Verified');
                 }
-
-                history.push('/homeUser');
+                firebase.database().ref('/users/' + result.uid).once('value').then((snapshot)=>{
+                    if(snapshot.val().role === 'admin'){
+                        history.push('/homeAdmin');
+                    }
+                    else{
+                        history.push('/homeUser');
+                    }
+                })
+                localStorage.setItem('userRegisted', JSON.stringify(result));                
             })
             .catch((error) => {
                 console.log(error);
@@ -78,7 +89,13 @@ export function onAuthState(){
             if (user) {
                 console.log("usuario activo");
                 console.log(user);
-                return user;
+                localStorage.setItem('userRegisted', JSON.stringify(user));
+                firebase.database().ref('/users/' + user.uid).once('value').then((snapshot)=>{
+                    console.log(snapshot.val());
+                    localStorage.setItem('role', JSON.stringify(snapshot.val().role));
+                    localStorage.setItem('username', JSON.stringify(snapshot.val().username));
+                })
+
             } else {
                 console.log("no usuario activo");
             }

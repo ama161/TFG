@@ -32,15 +32,16 @@ export function loginAuth() {
     }
 }
 
+function setDatabase(userId, data){
+    firebase.database().ref('users/' + userId).set(data);
+}
+
 export function login(email, password, history) {
     return (dispatch) => {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((result) => {
                 dispatch(loginUser(result));
-                // firebase.database().ref('users/'+result.uid).set({
-                //     username: 'Andrea',
-                //     role: 'admin'
-                // })
+                
                 if(result.emailVerified){
                     console.log('email Verified');
                 }
@@ -60,11 +61,16 @@ export function login(email, password, history) {
     }
 }
 
-export function logout() {
+export function logout(history) {
     return (dispatch) => {
         firebase.auth().signOut()
             .then(result => {
                 dispatch(logoutUser());
+                console.log('sesion cerrada');
+                history.push('/');
+                let language = localStorage.language;
+                localStorage.clear();
+                localStorage.setItem('language', language);
             })
             .catch(error => console.log(error));
         }

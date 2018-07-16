@@ -10,7 +10,7 @@ import Register from './components/register/RegisterContainer';
 import Login from './components/register/LoginContainer';
 import HomeUser from './components/homeUser/HomeUserContainer';
 import HomeTeacher from './components/homeTeacher/HomeTeacher';
-import HomeAdmin from './components/homeAdmin/HomeAdmin';
+import HomeAdmin from './components/homeAdmin/HomeAdminContainer';
 
 const Router = (props) => (
   <HashRouter>

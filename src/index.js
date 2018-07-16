@@ -17,6 +17,8 @@ firebase.initializeApp({
   messagingSenderId: "535350102945"
 });
 
+localStorage.setItem('language', 0);
+
 console.log(store.getState());
 
 ReactDOM.render(

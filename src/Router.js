@@ -11,6 +11,8 @@ import Login from './components/register/LoginContainer';
 import HomeUser from './components/homeUser/HomeUserContainer';
 import HomeTeacher from './components/homeTeacher/HomeTeacher';
 import HomeAdmin from './components/homeAdmin/HomeAdminContainer';
+import Add from './components/homeAdmin/Add';
+import LoginTeacher from './components/register/LoginTeacherContainer';
 
 const Router = (props) => (
   <HashRouter>
@@ -21,6 +23,8 @@ const Router = (props) => (
       <Route exact path="/homeUser" component={HomeUser}/>
       <Route exact path="/homeAdmin" component={HomeAdmin}/>
       <Route exact path="/homeTeacher" component={HomeTeacher}/>
+      <Route exact path="/add" component={Add}/>
+      <Route exact path="/loginTeacher" component={LoginTeacher}/>
     </div>
   </HashRouter>
 );

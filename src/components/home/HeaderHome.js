@@ -17,7 +17,6 @@ class HeaderHome extends React.Component{
         let lan = localStorage.language;
         return(
             <div className="home-buttons">
-                <button className="button-fill" onClick={() => this.props.history.push("/register")}>{language[lan].register}</button>
                 <button className="button-fill" onClick={() => this.props.history.push("/login")}>{language[lan].login}</button>
                 <Language/>
             </div>

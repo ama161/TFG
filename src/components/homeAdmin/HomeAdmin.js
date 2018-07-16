@@ -36,7 +36,7 @@ class HomeAdmin extends React.Component{
                 <Header/>
                 <h1>Welcome Admin!!!</h1>                
                 <div>
-                    <button className="button-fill" onClick={() => this.props.history.push("/")}>{language[lan].addTeachers}</button>
+                    <button className="button-fill" onClick={() => this.props.history.push("/add")}>{language[lan].addTeachers}</button>
                     <button className="button-fill" onClick={() => this.props.history.push("/")}>{language[lan].addStudents}</button>
                     <button className="button-fill" onClick={() => this.props.history.push("/")}>{language[lan].addParents}</button>  
                 </div>
